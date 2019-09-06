@@ -40,7 +40,7 @@ int NumberY = pt.getY();
 Actions act = new Actions(driver);
 act.moveByOffset(NumberX + 100, NumberY + 0).click().build().perform();
 Thread.sleep(2000);
-driver.findElement(By.xpath("(//a[contains(text(),'Logout')])[2]")).click();
+//driver.findElement(By.xpath("(//a[contains(text(),'Logout')])[2]")).click();
 driver.getTitle();
 driver.quit();
 
