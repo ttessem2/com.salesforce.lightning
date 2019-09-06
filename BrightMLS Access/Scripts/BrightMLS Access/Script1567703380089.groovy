@@ -6,9 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import org.openqa.selenium.WebDriver
 
 //Initializing server
-System.setProperty("webdriver.chrome.driver", "C:/Users/TessemaT/Downloads/chromedriver1/chromedriver.exe");
+//System.setProperty("webdriver.chrome.driver", "C:/Users/TessemaT/git/Tsemre_KatalonTests/BrightMLS Access/Drivers/chromedriver.exe");
+System.setProperty("webdriver.chrome.driver", "C:\\Users\\TessemaT\\git\\Tsemre_KatalonTests\\BrightMLS Access\\Drivers\\chromedriver");
 ChromeDriver driver = new ChromeDriver();
 driver.manage().window().maximize();
 driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
