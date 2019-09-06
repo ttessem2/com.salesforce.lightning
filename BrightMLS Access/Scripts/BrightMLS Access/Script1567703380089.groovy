@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver
 
 //Initializing server
 //System.setProperty("webdriver.chrome.driver", "C:/Users/TessemaT/git/Tsemre_KatalonTests/BrightMLS Access/Drivers/chromedriver.exe");
-System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver");
+System.setProperty("webdriver.chrome.driver", "/opt/katalonstudio/configuration/resources/drivers/chromedriver_linux64/chromedriver");
 ChromeDriver driver = new ChromeDriver();
 driver.manage().window().maximize();
 driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
