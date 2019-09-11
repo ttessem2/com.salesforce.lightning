@@ -37,8 +37,8 @@ public class Test_Lightning_Home_Page {
 //        New_Business_Account.troubleshoot_Status();
 //    }
 
-//    @After
-//    public void tear_Down(){
-//        driver.quit();
-//    }
+    @After
+    public void tear_Down(){
+        driver.quit();
+    }
 }

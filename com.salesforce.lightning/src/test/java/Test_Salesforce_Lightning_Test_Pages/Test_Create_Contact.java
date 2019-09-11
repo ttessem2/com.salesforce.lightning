@@ -3,6 +3,7 @@ package Test_Salesforce_Lightning_Test_Pages;
 import Salesforce_Lightning_Test_Pages.Lightning_Home_Page;
 import Salesforce_Lightning_Test_Pages.Salesforce_Create_Contact;
 import Salesforce_Lightning_Test_Pages.Salesforce_Login_Page;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +20,7 @@ public class Test_Create_Contact {
 
     @Before
     public void setUp() throws Exception {
-        driver = Test_Utils_Class.getDriver("https://mris--builddemo.lightning.force.com/lightning/o/Account/new?nooverride=1&useRecordTypeCheck=1&navigationLocation=LIST_VIEW&backgroundContext=%2Flightning%2Fpage%2Fhome");
+        driver = Test_Utils_Class.getDriver("https://mris--builddemo.lightning.force.com/lightning/o/Contact/new?nooverride=1&useRecordTypeCheck=1&navigationLocation=LIST_VIEW&backgroundContext=%2Flightning%2Fo%2FContact%2Flist%3FfilterName%3DRecent");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Login_Page = new Salesforce_Login_Page(driver);
@@ -29,6 +30,10 @@ public class Test_Create_Contact {
     }
     @Test
     public void Test_Create_Business_Account_title(){
-        assertEquals("TEST0907 | Salesforce", create_Contact.Get_Business_Account_Title_Page());
+        assertEquals("Lightning Experience", create_Contact.Get_Business_Account_Title_Page());
+    }
+    @After
+    public void tear_Down(){
+        driver.quit();
     }
 }
