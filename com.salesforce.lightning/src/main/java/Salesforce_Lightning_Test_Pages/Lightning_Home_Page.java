@@ -22,29 +22,35 @@ public class Lightning_Home_Page {
         return driver.getTitle();
     }
 
-    public void Populate_New_Business_Account_Form() throws InterruptedException{
+    public String Populate_New_Business_Account_Form() throws InterruptedException{
         WebElement Next_Button_New_Account = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[1]/following::span[1]"));
         Next_Button_New_Account.click();
         Thread.sleep(1000);
 
         WebElement Office_ID = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='*'])[1]/following::input[1]"));
         Office_ID.clear();
-        Office_ID.sendKeys("TEST0906");
+        Office_ID.sendKeys("TEST0907");
 
         WebElement Account_Name = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='*'])[3]/following::input[1]"));
         Account_Name.clear();
-        Account_Name.sendKeys("TEST0906");
+        Account_Name.sendKeys("TEST0907");
+
+        WebElement Status_drpdwn = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Status'])[1]/following::a[1]"));
+        Status_drpdwn.sendKeys("ACTIVE", Keys.ENTER);
+        Thread.sleep(1000);
 
         WebElement Account_Type = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='*'])[5]/following::a[1]"));
         Account_Type.sendKeys("Residential", Keys.ENTER);
+
+
 
         Point Account_Type_pt = Account_Type.getLocation();
         int NumberX = Account_Type_pt.getX();
         int NumberY = Account_Type_pt.getY();
         Actions act = new Actions(driver);
-        act.moveByOffset(NumberX+0, NumberY+100).click().build().perform();
+        act.moveByOffset(NumberX, NumberY+100).click().build().perform();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='--None--'])[15]/following::a[1]")).click();
+        driver.findElement(By.xpath("//a[contains(text(),'Broker Office')]")).click();
 
         WebElement Office_Phone = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='*'])[4]/following::input[1]"));
         Office_Phone.sendKeys("111-111-1111");
@@ -94,13 +100,16 @@ public class Lightning_Home_Page {
         Thread.sleep(2000);
         WebElement MailingAddress = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Mailing Address'])[1]/following::input[1]"));
         MailingAddress.sendKeys(Keys.TAB, Keys.TAB, Keys.ENTER);
-       // new WebDriverWait(driver, 10).until(ExpectedConditions.titleIs("Lightning Experience"));
-        new WebDriverWait(driver, 10).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[1]/following::iframe[2]")));
 
+        WebDriverWait wait1 = new WebDriverWait(driver, 10);
+        wait1.until(ExpectedConditions.titleIs("TEST0907 | Salesforce"));
+
+        return driver.getTitle();
 
         }
 
-        public void troubleshoot_Company_Name () throws InterruptedException{
+        public void troubleshoot_Company_Name () throws InterruptedException
+        {
             WebElement Next_Button_New_Account = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[1]/following::span[1]"));
             Next_Button_New_Account.click();
             Thread.sleep(1000);
@@ -109,12 +118,12 @@ public class Lightning_Home_Page {
             Account_Type.sendKeys("Residential", Keys.ENTER);
 
             Point pt = Account_Type.getLocation();
-        int NumberX = pt.getX();
-        int NumberY = pt.getY();
-        Actions act = new Actions(driver);
-        act.moveByOffset(NumberX+0, NumberY+100).click().build().perform();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='--None--'])[15]/following::a[1]")).click();
+            int NumberX = pt.getX();
+            int NumberY = pt.getY();
+            Actions act = new Actions(driver);
+            act.moveByOffset(NumberX, NumberY+100).click().build().perform();
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='--None--'])[15]/following::a[1]")).click();
         }
 
     public void troubleshoot_Street_Name () throws InterruptedException{
@@ -131,19 +140,17 @@ public class Lightning_Home_Page {
         Thread.sleep(1000);
 
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Primary Service Jurisdiction'])[1]/following::a[1]")).sendKeys("BRIGHT", Keys.ENTER, Keys.TAB, Keys.TAB, "BRIGHT", Keys.ENTER);
+    }
+    public void troubleshoot_Status () throws InterruptedException{
+        WebElement Next_Button_New_Account = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[1]/following::span[1]"));
+        Next_Button_New_Account.click();
+        Thread.sleep(1000);
 
-//        WebElement Prim_Jur_Text = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Other Server Access Tools'])[1]/following::span[5]"));
-//        Point pjt = Prim_Jur_Text.getLocation();
-//        int NumberX = pjt.getX();
-//        int NumberY = pjt.getY();
-//        System.out.println(NumberX );
-//        System.out.println(NumberY );
-//        Actions act = new Actions(driver);
-//        act.moveByOffset(NumberX+0, NumberY+10).click().build().perform();
-//        Thread.sleep(2000);
-        //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='--None--'])[15]/following::a[1]")).click();
+        WebElement Status_drpdwn = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Status'])[1]/following::a[1]"));
+        Status_drpdwn.sendKeys("ACTIVE", Keys.ENTER);
+        Thread.sleep(1000);
 
 
-    }}
+}}
 
 
