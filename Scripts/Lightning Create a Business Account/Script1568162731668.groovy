@@ -23,7 +23,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 //1) Goto Login Page
 ChromeOptions options = new ChromeOptions();
 options.addArguments("--disable-notifications");
-System.setProperty("webdriver.chrome.driver", "C:\\Users\\TessemaT\\Downloads\\chromedriver1\\chromedriver.exe");
+System.setProperty("webdriver.chrome.driver", "C:\\Users\\TessemaT\\git\\Tsemre_KatalonTests\\Salesforce Create Business Account\\Drivers\\chromedriver");
 WebDriver driver= new ChromeDriver();
 driver.get("https://mris--builddemo.lightning.force.com/lightning/o/Account/new?nooverride=1&useRecordTypeCheck=1&navigationLocation=LIST_VIEW&backgroundContext=%2Flightning%2Fpage%2Fhome");
 driver.manage().window().maximize();
@@ -54,11 +54,15 @@ driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS) ;
 
 		 WebElement Office_ID = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='*'])[1]/following::input[1]"));
 		 Office_ID.clear();
-		 Office_ID.sendKeys("TEST0906");
+		 Office_ID.sendKeys("TEST0907");
 
 		 WebElement Account_Name = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='*'])[3]/following::input[1]"));
 		 Account_Name.clear();
-		 Account_Name.sendKeys("TEST0906");
+		 Account_Name.sendKeys("TEST0907");
+		 
+		 WebElement Status_drpdwn = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Status'])[1]/following::a[1]"));
+		 Status_drpdwn.sendKeys("ACTIVE", Keys.ENTER);
+		 Thread.sleep(1000);
 
 		 WebElement Account_Type = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='*'])[5]/following::a[1]"));
 		 Account_Type.sendKeys("Residential", Keys.ENTER);
@@ -69,7 +73,7 @@ driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS) ;
 		 Actions act = new Actions(driver);
 		 act.moveByOffset(NumberX+0, NumberY+100).click().build().perform();
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='--None--'])[15]/following::a[1]")).click();
+		 driver.findElement(By.xpath("//a[contains(text(),'Broker Office')]")).click();
 
 		 WebElement Office_Phone = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='*'])[4]/following::input[1]"));
 		 Office_Phone.sendKeys("111-111-1111");
@@ -118,5 +122,9 @@ driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS) ;
 		 WebElement MailingAddress = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Mailing Address'])[1]/following::input[1]"));
 		 MailingAddress.sendKeys(Keys.TAB, Keys.TAB, Keys.ENTER);
 		 
-		 new WebDriverWait(driver, 10).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[1]/following::iframe[2]")));
+		 wait.until(ExpectedConditions.titleIs("TEST0907 | Salesforce"));
+		 
+		 driver.close();
+		 
+		// new WebDriverWait(driver, 10).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[1]/following::iframe[2]")));
 		  
