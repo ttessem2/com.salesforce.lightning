@@ -54,11 +54,11 @@ driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS) ;
 
 		 WebElement Office_ID = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='*'])[1]/following::input[1]"));
 		 Office_ID.clear();
-		 Office_ID.sendKeys("TEST0906");
+		 Office_ID.sendKeys("TEST0907");
 
 		 WebElement Account_Name = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='*'])[3]/following::input[1]"));
 		 Account_Name.clear();
-		 Account_Name.sendKeys("TEST0906");
+		 Account_Name.sendKeys("TEST0907");
 		 
 		 WebElement Status_drpdwn = driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Status'])[1]/following::a[1]"));
 		 Status_drpdwn.sendKeys("ACTIVE", Keys.ENTER);
