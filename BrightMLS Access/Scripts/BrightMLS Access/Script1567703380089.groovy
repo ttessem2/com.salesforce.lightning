@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver
 
 //Initializing server
 //System.setProperty("webdriver.chrome.driver", "C:/Users/TessemaT/git/Tsemre_KatalonTests/BrightMLS Access/Drivers/chromedriver.exe");
-System.setProperty("webdriver.chrome.driver", "C:\\Users\\TessemaT\\git\\Tsemre_KatalonTests\\BrightMLS Access\\Drivers\\chromedriver");
+System.setProperty("webdriver.chrome.driver", "/opt/katalonstudio/configuration/resources/drivers/chromedriver_linux64/chromedriver");
 ChromeDriver driver = new ChromeDriver();
 driver.manage().window().maximize();
 driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -40,7 +40,7 @@ int NumberY = pt.getY();
 Actions act = new Actions(driver);
 act.moveByOffset(NumberX + 100, NumberY + 0).click().build().perform();
 Thread.sleep(2000);
-driver.findElement(By.xpath("(//a[contains(text(),'Logout')])[2]")).click();
+//driver.findElement(By.xpath("(//a[contains(text(),'Logout')])[2]")).click();
 driver.getTitle();
 driver.quit();
 
