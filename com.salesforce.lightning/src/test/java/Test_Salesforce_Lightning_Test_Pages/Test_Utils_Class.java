@@ -12,7 +12,7 @@ public class Test_Utils_Class {
     public static WebDriver getDriver(String url) {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\TessemaT\\git\\Tsemre_KatalonTests\\com.salesforce.lightning\\src\\main\\resources\\chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\TessemaT\\git\\Tsemre_KatalonTests\\com.salesforce.lightning\\src\\main\\resources\\chromedriver.exe");
         WebDriver driver= new ChromeDriver(options);
         driver.get(url);
         driver.manage().window().maximize();
