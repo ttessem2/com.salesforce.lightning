@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class Test_Utils_Class {
@@ -12,7 +13,8 @@ public class Test_Utils_Class {
     public static WebDriver getDriver(String url) {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\TessemaT\\git\\Tsemre_KatalonTests\\com.salesforce.lightning\\src\\main\\resources\\chromedriver.exe");
+        Properties properties = Config.properties();
+        System.setProperty("webdriver.chrome.driver", properties.getProperty("chromedriver.path"));
         WebDriver driver= new ChromeDriver(options);
         driver.get(url);
         driver.manage().window().maximize();

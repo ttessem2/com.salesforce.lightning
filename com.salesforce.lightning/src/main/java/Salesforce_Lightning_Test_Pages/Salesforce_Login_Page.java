@@ -50,7 +50,7 @@ public class Salesforce_Login_Page {
 
         //driver.switchTo().alert().accept();
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"oneHeader\"]/div[3]/one-appnav/div/one-app-nav-bar/nav/div/one-app-nav-bar-item-root[2]/a/span")));
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"oneHeader\"]/div[3]/one-appnav/div/one-app-nav-bar/nav/div/one-app-nav-bar-item-root[2]/a/span")));
        // wait.until(ExpectedConditions.titleIs("Home | Salesforce"));
         return driver.getTitle();
 
